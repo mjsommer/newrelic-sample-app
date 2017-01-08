@@ -1,0 +1,39 @@
+== README
+
+This is a sample Rails app for New Relic. It is a simple service for storing and retrieving events.
+
+The application stores the: a) timestamp, b) string, and c) hostname from which the submittal originated.
+ - Both the hostname and timestamp are derived.
+ - Only the "string", is manually entered.
+
+
+1. Setup:
+
+Install the Rails app
+ - Download into your directory of your choice.
+ - Make sure all the Rails prerequisites are in place, such as Ruby, Postgres, etc.
+ - Run bundle (install)
+ - run 'rake db:drop db:create db:migrate db:seed'
+ - run "rails s'
+
+ The app should come up, and be running at localhost:3000
+
+2. Sample queries:
+
+Storing events:
+  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'string=abc123' "http://localhost:3000/events/create"
+
+Query the last N events for an org
+  curl -X GET "http://localhost:3000/events/show?org=google.com&limit=2"
+
+Query the last N events for a specific host within an org
+  curl -X GET "http://localhost:3000/events/show?org=google.com&host=server1&limit=2"
+
+
+Notes:
+
+In this example:
+1. An 'org' is assumed to be a domain name, such as 'google.com'.
+2. A "specific host within an org", would be the 'first' sub-domain name, such as "server1" of 'abc.123.server1.google.com'.
+3. Subsequent sub-domains are being ignored for this exercise, but as always, the scope could be increased.
+
