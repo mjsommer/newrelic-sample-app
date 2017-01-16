@@ -7,7 +7,7 @@ The application stores the: a) timestamp, b) string, and c) hostname from which 
  - Only the "string", is manually entered.
 
 
-1. Setup:
+Setup:
 
 Install the Rails app
  - Download into your directory of your choice.
@@ -18,7 +18,7 @@ Install the Rails app
 
  The app should come up, and be running at localhost:3000
 
-2. Sample queries:
+Sample queries:
 
 Storing events:
   curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'string=abc123' "http://localhost:3000/events/create"
