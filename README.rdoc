@@ -20,7 +20,7 @@ Install the Rails app
 
 Sample queries:
 
-Storing events:
+Storing events
   curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'string=abc123' "http://localhost:3000/events/create"
 
 Query the last N events for an org
